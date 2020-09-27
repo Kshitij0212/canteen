@@ -26,7 +26,7 @@ SECRET_KEY = '6r842n-&2q!oo1p2c8@j0dwvx(u(a^5qb2kza2q9ej^x+@jb@-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1',]
+ALLOWED_HOSTS = ['127.0.0.1','canteenmanagementsystem.herokuapp.com/']
 
 
 # Application definition
