@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div id="ques" class="container">
+  {% if user.is_customer %}
+    <h1> Are you sure you want to cancel the order ??</h1>
+    <form method="post">
+      {% csrf_token %}
+      <input type="submit" class="btn btn-danger" value="Yes">
+      <a href="{% url 'order:order_detail' pk=message.pk %}" class="btn btn-success">No</a>
+    </form>
+  {% else %}
+    <h1>Order Placed Successfully..!!</h1>
+    <form method="post">
+      {% csrf_token %}
+      <input type="submit" class="btn btn-success" value="Back to Home">
+    </form>
+  {% endif %}
+</div>
+{% endblock %}

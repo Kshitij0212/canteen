@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+  <div class="aboutus container">
+    <h1 id="des">Description of the project</h1>
+    <p>The Website aims to ease the process of ordering food from canteens in the college.</p>
+    <p>The website uses Django sessions and user defined context pre-processor for the ‘Cart’ Application to save all the items in the current session and gets deleted after the user logs out.</p>
+    <p>The Django project uses ImageField Attribute in the ‘Item’ model, which requires the pillow library which needs to be installed(using pip install pillow).</p>
+    <p>Any user who is not logged in and tries to manually edit the URL in browser’s tab is redirected to the homepage.</p>
+    <p>The website has the following Applications:</p>
+    <ul>
+      <li>Accounts (For login and signup)</li>
+      <li>Menu (For the list of items available)</li>
+      <li>Food Cart (For the order functionality)</li>
+    </ul>
+    <p>The tables inside the database are:</p>
+    <ul>
+      <li>Users</li>
+      <li>Categories</li>
+      <li>Items</li>
+    </ul>
+  </div>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+
+    Your Food cart
+}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 id="urfood">Order Reciept</h1>
+    <label for="name">Name :</label>
+    <input id="name" type="text" name="name">
+    <br>
+    <label for="contact">Contact No. :</label>
+    <input id="contact" type="text" name="contact">
+    <input id="roomin" type="text" name="room">
+    <label id="room" for="room">Room No. :</label>
+    <table class="cart table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Remove</th>
+                <th>Unit price</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for item in cart %}
+            {% with item1=item.product %}
+            <tr>
+                <td>{{ item1.name }}  {{ item1.quantity }}</td>
+                <td>
+                   {% with item2=item.update_quantity_form %}
+                    <form action="{% url 'cart:cart_add' item1.id %}" method="post">
+                        {{ item2.quantity}}
+                        <input type="submit" class="btn btn-outline-dark btn-sm" value="Update">
+                        {% csrf_token %}
+                    </form>
+                    {% endwith %}
+                </td>
+
+                <td><a id="remove" href="{% url 'cart:cart_remove' item1.id %}">Remove</a></td>
+                <td class="num">₹{{ item.price }}</td>
+                <td class="num">₹{{ item.total_price }}</td>
+            </tr>
+            {% endwith %}
+        {% endfor %}
+        <tr class="total">
+            <td>Total</td>
+            <td colspan="3"></td>
+            <td class="num">₹{{ cart.get_total_price }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <p class="text-right">
+        <a href="{% url 'cart:clearcart' %}" class="btn btn-danger">Clear Cart</a>
+        <a href="{% url 'menu:item_list' %}" class="btn btn-primary">Add More Items</a>
+        <button onclick="window.print()" class="btn btn-success">Print Reciept</button>
+
+    </p>
+</div>
+{% endblock %}

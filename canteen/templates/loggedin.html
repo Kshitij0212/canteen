@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container">
+        <div class="jumbotron">
+            {% if user.is_authenticated and user.is_customer %}
+                <h1>Welcome {{user.first_name}} {{user.last_name}} to DY Patil's Canteen</h1>
+                <hr>
+                <a href="{% url 'menu:item_list' %}" class="btn btn-primary">Today's Menu</a>
+                <a href="{% url 'order:order_create' %}" class="btn  btn-secondary">Order Now</a>
+            {% else %}
+                <h1>Welcome {{user.username}}. It's a brand new day. You are now logged in..!!</h1>
+                <hr>
+                <a href="{% url 'order:order_list' %}" class="btn  btn-primary">Order Requests</a>
+                <a href="{% url 'menu:item_list' %}" class="btn  btn-primary">Place Order</a>
+            {% endif %}
+        </div>
+    </div>    
+{% endblock %}

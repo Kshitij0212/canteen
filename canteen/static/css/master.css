@@ -1,0 +1,24 @@
+
+
+.jumbotron{
+  background-color: #5e0b15;
+  color: white;
+}
+
+.aboutus{
+  color: #5e0b15;
+  font-size: 1.25em;
+}
+
+#des{
+  text-align: center;
+  padding-bottom: 1em;
+  padding-top: 0.5em;
+}
+#log{
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+}
+#sign{
+  padding-top: 0.25em;
+}

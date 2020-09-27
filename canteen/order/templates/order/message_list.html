@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<div class="list container">
+  <h1>Pending Orders</h1>
+  {% for m in message_list %}
+    <h2 id="orders"><a href="{{m.id}}">Order Number {{m.id}}</a></h2>
+  {% empty %}
+    <h2>No pending orders</h2>
+  {% endfor %}
+</div>
+{% endblock %}

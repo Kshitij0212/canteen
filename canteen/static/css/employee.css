@@ -1,0 +1,46 @@
+.list{
+  text-align:center;
+  padding-top: 1.5em;
+}
+#ques{
+  text-align: center;
+  padding-top: 2em;
+}
+#urfood{
+  text-align: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+}
+#room{
+  float: right;
+}
+#name{
+  width: 9em;
+}
+#contact{
+  width: 7em;
+}
+#roomin{
+  float: right;
+  width: 3em;
+}
+#remove{
+  color: black;
+}
+#cat{
+  color: white;
+}
+#item{
+  color: black;
+  font-size: 1.25em;
+}
+.product-detail{
+  text-align: center;
+  padding-top: 1.5em;
+}
+.price{
+  font-size: 1.25em;
+}
+.item{
+  font-size: 1.25em;
+}

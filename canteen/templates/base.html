@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/master.css' %}">
+    <link rel="stylesheet" href="{% static 'css/menu.css' %}">
+    <link rel="stylesheet" href="{% static 'css/order.css' %}">
+    <link rel="stylesheet" href="{% static 'css/employee.css' %}">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light mynav" role="navigation" id="navbar">
+      <div class="container-fluid">
+        <a class="navbar-brand mynav" href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}" width="150" height="60" class="d-inline-block align-top" loading="lazy"></a>
+        <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated and user.is_customer%}
+          <li class="nav-item"> <a class="nav-link" href="{% url 'menu:item_list' %}">Menu</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'order:order_create' %}">Order</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a> </li>
+          {% elif user.is_authenticated and user.is_employee %}
+          <li class="nav-item"> <a class="nav-link" href="{% url 'order:order_list' %}">Order Requests</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'menu:item_list' %}">Order Now</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'accounts:logout' %}">Logout</a> </li>
+          {% else %}
+          <li class="nav-item"> <a class="nav-link" href="{% url 'home' %}">Home</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'about_us' %}">About Us</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'accounts:login' %}">Login</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'accounts:customer_signup' %}">Customer Sign Up</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'accounts:employee_signup' %}">Employee Sign Up</a> </li>
+          <li class="nav-item"> <a class="nav-link" href="{% url 'admin:index' %}">Admin</a> </li>
+          {% endif %}
+        </ul>
+      </div>
+    </nav>
+      {% block content %}
+
+      {% endblock %}
+  </body>
+</html>

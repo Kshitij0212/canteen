@@ -1,0 +1,21 @@
+#Eod{
+  text-align: center;
+}
+.order_form{
+  text-align: left;
+  width: fit-content;
+  padding-bottom: 2em;
+}
+.detail{
+  text-align: left;
+  font-size: 1.5em;
+  padding-bottom: 2em;
+}
+#urorder{
+  text-align: center;
+  font-size: 3em;
+  padding-bottom: 0.5em;
+}
+.but{
+  display: inline-block;
+}
